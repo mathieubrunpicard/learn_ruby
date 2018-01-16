@@ -1,21 +1,31 @@
 #Book Titles
 
 class Book
+
+  #J'initialise avec cette methode
   def title
     @title
   end
+
+  #Cette méthode appelle ma fonction et retourne le tout
   def title=(string)
     @title = capital_letters(string)
     return @title
   end
 
+
   def capital_letters(title)
     #declaration des variables
     @title = title
+
+    #Je met tout les mots dans un array
     @array_title = @title.split()
     @capitalized_movies = []
     @return = ""
     i=0
+
+    #Je boucle sur les mots pour les mettre en capitale sauf
+    #si ce sont And in the of a an (exception de The en premiere position)
     @array_title.each do |x|
 
 
@@ -34,6 +44,8 @@ class Book
 @capitalized_movies.each do |x|
   @return += x + " "
 end
+
+#On coupe le dernier espace et tadam
 @return = @return.chomp(' ')
 return @return
 end
