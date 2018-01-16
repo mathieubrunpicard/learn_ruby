@@ -1,3 +1,5 @@
+#Je crée un index voyelle qui contient toute les voyelles pour
+#pouvoir faire des tests avec la fonction .include?
 def translate(word)
 
   @word_to_translate = word.split(/ /)
@@ -5,14 +7,26 @@ def translate(word)
   @vowels = "aeiouy"
   @output = ""
 
+#Premiere boucle pour recuperer tout les mots dans un array
   @word_to_translate.each do |x|
     @whole_sentence << x
   end
 
-# 3 cas
-# commence par une voyelle
-# commence par une consonne
-# commence par deux consonne
+#Ensuite je boucle sur chaque mot de cet array
+#Et j'effectue des tests sur les premieres lettres
+
+# Plusieurs cas
+# 1- le mot ommence par une voyelle donc
+# on rajoute juste ay à la fin
+# 2 - La 1ere lettre est un Q suivi de U
+#2bis ou SQU alors je considere egalement le tout comme une consonne
+# 3 - Trois consonnes
+# 4 - Deux consonnes
+# 5 - Une consonne
+
+#C'est tres compliqué pour rien
+#Il aurait mieux fallu faire des cas
+
 
 @whole_sentence.each do |word_to_translate|
 
@@ -38,12 +52,9 @@ def translate(word)
         end
 
 
-
-
-
-
       elsif !(@vowels.include?(@first_char) || @vowels.include?(@second_char)|| @vowels.include?(@third_char))
 
+#Ici on commence par trois consonnes
         @new_word[@text_length] = @first_char
         @new_word[@text_length+1] = @second_char
         @new_word[@text_length+2] = @third_char
@@ -51,12 +62,12 @@ def translate(word)
 
       elsif !(@vowels.include?(@first_char) || @vowels.include?(@second_char))
 
+#Ici on commence par deux consonnes
         @new_word[@text_length] = @first_char
         @new_word[@text_length+1] = @second_char
         @new_word = @new_word[2..-1]
 
 
-#Ici on commence par deux consonnes
 else
   @new_word[@text_length] = @first_char
   @new_word = @new_word[1..-1]
