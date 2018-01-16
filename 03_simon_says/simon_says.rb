@@ -1,7 +1,10 @@
+#La fonction repete ce qu'on dit
 def echo(text)
   @text = text
   return @text
-end#write your code here
+end#
+
+#La fonction repete ce qu'on dit en maj
 
 def shout(text)
   @text = text
@@ -9,6 +12,11 @@ def shout(text)
   return @shout
 end
 
+#La fonction repete n fois les mots
+# n est à 1 par défaut
+#JE fais une boucle si n >1 (2 ou plus)
+#où la sortie est n fois le text
+#Deux fois sinon
 def repeat(text, n=1)
   @rep = text
   @n = n
@@ -27,6 +35,10 @@ def repeat(text, n=1)
   return @output
 end
 
+
+#Je me complique un peu la vie ici en faisant une boucle sur les
+#n premieres valeurs du texte
+#J'aurai pu juste faire string[0..n]...
 def start_of_word(text, n)
   @start= ""
   @n = n
@@ -39,10 +51,33 @@ def start_of_word(text, n)
   return @start
 end
 
+#J'utilise la fonction partition pour obtenir le premier mot
 def first_word(text)
   @start = text
   @return = @start.partition(" ").first
   return @return
+end
+
+
+=begin
+
+Ue fais une fonction split qui me recupere tout les mots
+et les mettent dans un array
+Ensuite je fais une boucle sur l’array pour mettre chaque
+mot en majuscule
+et je les mets dans un tableau nommé return
+
+Puis je fais plusieurs tests sur ce tableau
+1- Si la taille de ce tableau est égale à un, a
+lors il y a un seul mot, on sort de la boucle et on donne l’output
+2-Sinon alors si le mot du tableau est and, over, the : on ne fait rien
+Sauf si c'est the ET qu'il est en premiere position
+Ensuite je retourne le tout
+En utilisant chomp pour enlever le dernier espace qui est la à
+cause de la concatenation
+
+=end
+
 end
 
 def titleize(text)
